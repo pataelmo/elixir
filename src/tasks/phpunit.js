@@ -1,5 +1,6 @@
 import runTests from './shared/Tests';
 
+var path = require('path');
 /*
  |----------------------------------------------------------------
  | PHPUnit Testing
@@ -15,6 +16,6 @@ Elixir.extend('phpUnit', function(src, command) {
     runTests(
         'PHPUnit',
         src || (Elixir.config.testing.phpUnit.path + '/**/*Test.php'),
-        command || 'vendor/bin/phpunit --verbose'
+        command || (path.normalize('vendor/bin/phpunit') + ' --verbose')
     );
 });
